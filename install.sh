@@ -41,20 +41,20 @@ link_file "$SCRIPT_DIR/AGENTS.md" "$OPENCODE_CONFIG/AGENTS.md"
 OPENCODE_JSON="$OPENCODE_CONFIG/opencode.json"
 if command -v jq &>/dev/null && [ -f "$OPENCODE_JSON" ]; then
   echo ""
-  echo "Merging agent colors into opencode.json..."
-  COLORS="$SCRIPT_DIR/config/agent-colors.json"
+  echo "Merging agent config into opencode.json..."
+  COLORS="$SCRIPT_DIR/config/agents.json"
   TMP=$(mktemp)
   jq -s '.[0] * .[1]' "$OPENCODE_JSON" "$COLORS" > "$TMP"
   mv "$TMP" "$OPENCODE_JSON"
-  echo "  merged agent colors"
+  echo "  merged agent config (colors + reasoning)"
 elif [ ! -f "$OPENCODE_JSON" ]; then
   echo ""
   echo "NOTE: No opencode.json found at $OPENCODE_JSON"
-  echo "      See config/agent-colors.json to add agent colors manually."
+  echo "      See config/agents.json to add agent config manually."
 else
   echo ""
   echo "NOTE: jq not found — skipping agent color merge."
-  echo "      Install jq or manually merge config/agent-colors.json into opencode.json."
+  echo "      Install jq or manually merge config/agents.json into opencode.json."
 fi
 
 echo ""

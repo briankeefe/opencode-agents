@@ -43,7 +43,7 @@ Because these are **symlinks**, any `git pull` in this repo immediately updates 
 
 ### Merging agent colors manually (if jq is missing)
 
-Add the contents of `config/agent-colors.json` into the `"agent"` key of your `~/.config/opencode/opencode.json`.
+Add the contents of `config/agents.json` into the `"agent"` key of your `~/.config/opencode/opencode.json`.
 
 ---
 

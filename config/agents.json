@@ -1,0 +1,32 @@
+{
+  "agent": {
+    "foreman": {
+      "color": "#FF2D95",
+      "reasoningEffort": "high"
+    },
+    "build": {
+      "color": "#4CC9F0",
+      "reasoningEffort": "medium"
+    },
+    "plan": {
+      "color": "#FFD700",
+      "reasoningEffort": "high"
+    },
+    "builder-lite": {
+      "color": "#00FFFF",
+      "reasoningEffort": "medium"
+    },
+    "search-lite": {
+      "color": "#BF00FF",
+      "reasoningEffort": "low"
+    },
+    "review-lite": {
+      "color": "#FF6B00",
+      "reasoningEffort": "medium"
+    },
+    "docs-lite": {
+      "color": "#39FF14",
+      "reasoningEffort": "low"
+    }
+  }
+}
