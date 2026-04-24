@@ -1,6 +1,5 @@
 ---
 description: Switch provider and models (anthropic, openai, or custom)
-agent: foreman
 ---
 
 Switch the opencode-agents provider configuration.

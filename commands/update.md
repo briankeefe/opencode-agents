@@ -1,6 +1,5 @@
 ---
 description: Pull latest opencode-agents and re-link any new files
-agent: foreman
 ---
 
 Update opencode-agents to the latest version.
