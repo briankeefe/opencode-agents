@@ -1,7 +1,7 @@
 ---
 description: Smart primary orchestrator with strict delegation budgets
 mode: primary
-model: anthropic/claude-opus-4-6
+model: openai/gpt-5.4
 color: "#FF2D95"
 permission:
   edit: allow

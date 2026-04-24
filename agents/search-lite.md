@@ -1,7 +1,7 @@
 ---
 description: Fast read-only codebase hunter for locating files, symbols, and evidence
 mode: primary
-model: anthropic/claude-sonnet-4-6
+model: openai/gpt-5.4-mini
 color: "#BF00FF"
 permission:
   edit: deny

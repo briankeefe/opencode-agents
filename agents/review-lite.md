@@ -1,7 +1,7 @@
 ---
 description: Read-only reviewer for diffs, branches, and PRs
 mode: primary
-model: anthropic/claude-sonnet-4-6
+model: openai/gpt-5.4-mini
 color: "#FF6B00"
 permission:
   edit: deny

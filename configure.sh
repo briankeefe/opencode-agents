@@ -15,6 +15,16 @@ PRIMARY_MODEL[openai]="openai/gpt-5.4"
 WORKER_MODEL[anthropic]="anthropic/claude-sonnet-4-6"
 WORKER_MODEL[openai]="openai/gpt-5.4-mini"
 
+sed_in_place() {
+  local expr="$1"
+  local file="$2"
+  if sed --version >/dev/null 2>&1; then
+    sed -i "$expr" "$file"
+  else
+    sed -i '' "$expr" "$file"
+  fi
+}
+
 usage() {
   echo "Usage: ./configure.sh <provider>"
   echo ""
@@ -53,9 +63,9 @@ echo "Updating agent model references..."
 for f in "$SCRIPT_DIR/agents/"*.md; do
   name=$(basename "$f" .md)
   if [ "$name" = "foreman" ]; then
-    sed -i '' "s|^model:.*|model: $PRIMARY|" "$f"
+    sed_in_place "s|^model:.*|model: $PRIMARY|" "$f"
   else
-    sed -i '' "s|^model:.*|model: $WORKER|" "$f"
+    sed_in_place "s|^model:.*|model: $WORKER|" "$f"
   fi
   echo "  $name → $(grep '^model:' "$f")"
 done

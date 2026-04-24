@@ -1,7 +1,7 @@
 ---
 description: External docs lookup agent using Context7 and official docs only
 mode: subagent
-model: anthropic/claude-sonnet-4-6
+model: openai/gpt-5.4-mini
 color: "#39FF14"
 permission:
   edit: deny
