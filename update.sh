@@ -5,4 +5,6 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cd "$SCRIPT_DIR"
 git pull --ff-only
-echo "Updated. Symlinks are live — no reinstall needed."
+
+# Re-run install to pick up new agent/command files
+"$SCRIPT_DIR/install.sh"
