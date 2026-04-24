@@ -100,8 +100,8 @@ You can also edit `config/providers/*.json` to add custom base URLs, proxies, et
 
 | Role | Anthropic | OpenAI |
 |------|-----------|--------|
-| Primary (foreman) | `anthropic/claude-opus-4-6` | `openai/o3` |
-| Worker (builder, search, review, docs) | `anthropic/claude-sonnet-4-6` | `openai/gpt-4.1` |
+| Primary (foreman) | `anthropic/claude-opus-4-6` | `openai/gpt-5.4` |
+| Worker (builder, search, review, docs) | `anthropic/claude-sonnet-4-6` | `openai/gpt-5.4-mini` |
 
 To customize, edit the model map at the top of `configure.sh`.
 

@@ -10,10 +10,10 @@ declare -A PRIMARY_MODEL
 declare -A WORKER_MODEL
 
 PRIMARY_MODEL[anthropic]="anthropic/claude-opus-4-6"
-PRIMARY_MODEL[openai]="openai/o3"
+PRIMARY_MODEL[openai]="openai/gpt-5.4"
 
 WORKER_MODEL[anthropic]="anthropic/claude-sonnet-4-6"
-WORKER_MODEL[openai]="openai/gpt-4.1"
+WORKER_MODEL[openai]="openai/gpt-5.4-mini"
 
 usage() {
   echo "Usage: ./configure.sh <provider>"
