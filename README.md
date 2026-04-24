@@ -24,8 +24,6 @@ Custom agents, commands, and global instructions for [OpenCode](https://opencode
 | `/caveman` | Switch response compression level (lite/full/ultra) |
 | `/normal-mode` | Turn off caveman mode |
 | `/cheatsheet` | Print agent/command quick reference |
-| `/SocraticQuiz` | Interactive programming concept quiz with persistent state |
-
 ### Global instructions (`AGENTS.md`)
 Caveman mode — terse, fragment-OK responses by default. Configurable per session.
 
@@ -74,12 +72,47 @@ cd ~/.config/opencode-agents
 
 ---
 
+## Provider setup
+
+Agents default to Anthropic models. To switch providers (e.g., OpenAI):
+
+```bash
+./configure.sh openai
+```
+
+This rewrites the `model:` lines in agent frontmatter and merges provider config into `opencode.json`.
+
+Available providers: `anthropic`, `openai`
+
+Example configs are in `config/providers/`. Copy one and fill in your API key:
+
+```bash
+# Anthropic (default)
+./configure.sh anthropic
+
+# OpenAI
+./configure.sh openai
+```
+
+You can also edit `config/providers/*.json` to add custom base URLs, proxies, etc.
+
+### Model mapping
+
+| Role | Anthropic | OpenAI |
+|------|-----------|--------|
+| Primary (foreman) | `anthropic/claude-opus-4-6` | `openai/o3` |
+| Worker (builder, search, review, docs) | `anthropic/claude-sonnet-4-6` | `openai/gpt-4.1` |
+
+To customize, edit the model map at the top of `configure.sh`.
+
+---
+
 ## Machine-specific config
 
 The following are **not** in this repo because they differ per machine:
 
-- `provider` config (API keys, proxy URLs)
-- `plugin` paths (absolute paths to local plugins like meridian)
-- `model` / `small_model` defaults
+- `provider` API keys (set in `config/providers/*.json` — gitignored)
+- `plugin` paths (absolute paths to local plugins)
+- `model` / `small_model` defaults in opencode.json (set via `configure.sh`)
 
 Keep those in your local `~/.config/opencode/opencode.json` alongside the synced agent colors.

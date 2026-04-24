@@ -1,0 +1,11 @@
+{
+  "provider": {
+    "openai": {
+      "options": {
+        "apiKey": "YOUR_API_KEY"
+      }
+    }
+  },
+  "model": "openai/o3",
+  "small_model": "openai/gpt-4.1"
+}

@@ -1,2 +1,3 @@
 autoupdate/update.log
 *.bak
+config/providers/local-*.json

@@ -1,0 +1,11 @@
+{
+  "provider": {
+    "anthropic": {
+      "options": {
+        "apiKey": "YOUR_API_KEY"
+      }
+    }
+  },
+  "model": "anthropic/claude-opus-4-6",
+  "small_model": "anthropic/claude-sonnet-4-6"
+}
