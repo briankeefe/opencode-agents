@@ -24,6 +24,10 @@ Custom agents, commands, and global instructions for [OpenCode](https://opencode
 | `/caveman` | Switch response compression level (lite/full/ultra) |
 | `/normal-mode` | Turn off caveman mode |
 | `/cheatsheet` | Print agent/command quick reference |
+| `/configure` | Switch provider and models (anthropic, openai) |
+| `/update` | Pull latest and re-link new files |
+| `/challenge` | Force critical self-review of current reasoning |
+
 ### Global instructions (`AGENTS.md`)
 Caveman mode — terse, fragment-OK responses by default. Configurable per session.
 
@@ -49,25 +53,46 @@ Add the contents of `config/agents.json` into the `"agent"` key of your `~/.conf
 
 ## Auto-update
 
-Install a daily launchd job (macOS) that runs `git pull` at 9am:
+### On launch (recommended)
+
+Add this to your `.zshrc` to check for updates once per day when you launch opencode:
+
+```bash
+opencode() {
+  local stamp="${XDG_STATE_HOME:-$HOME/.local/state}/opencode-agents-last-update"
+  local repo="${OPENCODE_AGENTS_REPO:-$HOME/.config/opencode-agents}"
+  if [[ -d "$repo" ]]; then
+    local now=$(date +%s)
+    local last=0
+    [[ -f "$stamp" ]] && last=$(<"$stamp")
+    if (( now - last > 86400 )); then
+      echo "[opencode-agents] checking for updates..."
+      (cd "$repo" && git pull --ff-only -q && ./install.sh) 2>/dev/null && echo "$now" > "$stamp"
+    fi
+  fi
+  command opencode "$@"
+}
+```
+
+### Launchd (macOS)
+
+Install a daily launchd job that runs `git pull` at 9am:
 
 ```bash
 ./autoupdate/setup-autoupdate.sh
 ```
 
-For Linux, add a crontab entry:
+### Cron (Linux)
 
 ```
 0 9 * * * /path/to/opencode-agents/update.sh >> /path/to/opencode-agents/autoupdate/update.log 2>&1
 ```
 
----
-
-## Manual update
+### Manual / from inside opencode
 
 ```bash
-cd ~/.config/opencode-agents
-./update.sh
+./update.sh        # from terminal
+/update            # from inside opencode
 ```
 
 ---
