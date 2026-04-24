@@ -32,7 +32,7 @@ Caveman mode — terse, fragment-OK responses by default. Configurable per sessi
 ## Install
 
 ```bash
-git clone git@github.com:brianfakename/opencode-agents.git ~/.config/opencode-agents
+git clone git@github.com:briankeefe/opencode-agents.git ~/.config/opencode-agents
 cd ~/.config/opencode-agents
 ./install.sh
 ```
