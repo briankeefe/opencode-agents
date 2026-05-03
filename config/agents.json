@@ -1,7 +1,12 @@
 {
+  "_comment_opencode_agents_sync": "If an agent changes agent/config behavior in the live opencode.json, mirror that change here, then commit and push this repo.",
   "agent": {
     "foreman": {
       "color": "#FF2D95",
+      "reasoningEffort": "high"
+    },
+    "ralph": {
+      "color": "#FF9F1C",
       "reasoningEffort": "high"
     },
     "build": {

@@ -8,6 +8,7 @@ Custom agents, commands, and global instructions for [OpenCode](https://opencode
 | Agent | Model | Role |
 |-------|-------|------|
 | `foreman` | opus-4-6 | Smart orchestrator — classifies tasks, delegates to the right agent, avoids churn |
+| `ralph` | gpt-5.4 | Aggressive spec-driven loop — picks highest-leverage next step, executes, verifies, repeats |
 | `builder-lite` | sonnet-4-6 | Narrow executor — builds only what was asked, no planning overhead |
 | `search-lite` | sonnet-4-6 | Read-only file hunter — glob, grep, read, stop |
 | `review-lite` | sonnet-4-6 | Read-only reviewer — findings only, no fixes |
